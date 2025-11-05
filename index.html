@@ -31,6 +31,16 @@
   <div class="status" id="isShouldBeDownStatus">itshouldbedown.geo.ca: <span>Checking...</span></div>
   <div class="status" id="geocoreV2">geocoreV2: <span>Checking...</span></div>
   <div class="status" id="geocoreAnalytics">geocoreAnalytics: <span>Checking...</span></div>
+  <hr>
+  <div class="status" id="maps.canada.ca">maps.canada.ca: <span>Checking...</span></div>
+  <div class="status" id="maps-staging.canada.ca">maps-staging.canada.ca: <span>Checking...</span></div>
+  <div class="status" id="maps-test.canada.ca">maps-test.canada.ca: <span>Checking...</span></div>
+  <div class="status" id="maps-dev.canada.ca">maps-dev.canada.ca: <span>Checking...</span></div>
+  <div class="status" id="gcgeo.gc.ca">maps.canada.ca: <span>Checking...</span></div>
+  <div class="status" id="staging.gcgeo.gc.ca">staging.gcgeo.gc.ca: <span>Checking...</span></div>
+  <div class="status" id="test.gcgeo.gc.ca">test.gcgeo.gc.ca: <span>Checking...</span></div>
+  <div class="status" id="dev.gcgeo.gc.ca">dev.gcgeo.gc.ca: <span>Checking...</span></div>
+  <div class="status" id="redmine.gcgeo.gc.ca">redmine.gcgeo.gc.ca: <span>Checking...</span></div>
   <button onclick="checkStatus()">Check Again</button>
 
   <script>
@@ -53,6 +63,15 @@
       checkUrl('https://itshouldbedown.geo.ca', 'isShouldBeDownStatus');
       checkUrl('https://geocore.api.geo.ca/id/v2?id=fec53bce-7bc5-4115-93b5-cbd058b146f8&lang=en', 'geocoreV2');
       checkUrl('https://geocore.api.geo.ca/analytics/11', 'geocoreAnalytics');
+      checkUrl('https://maps.canada.ca/', 'maps.canada.ca');
+      checkUrl('https://maps-staging.canada.ca/', 'maps-staging.canada.ca');
+      checkUrl('https://maps-test.canada.ca/', 'maps-test.canada.ca');
+      checkUrl('https://maps-dev.canada.ca/', 'maps-dev.canada.ca');
+      checkUrl('https://gcgeo.gc.ca/', 'gcgeo.gc.ca');
+      checkUrl('https://staging.gcgeo.gc.ca/', 'staging.gcgeo.gc.ca');
+      checkUrl('https://test.gcgeo.gc.ca/', 'test.gcgeo.gc.ca');
+      checkUrl('https://dev.gcgeo.gc.ca/', 'dev.gcgeo.gc.ca');
+      checkUrl('https://redmine.gcgeo.gc.ca/', 'redmine.gcgeo.gc.ca');
     }
 
     // Initial check on page load
