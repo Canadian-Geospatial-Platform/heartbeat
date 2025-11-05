@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Heartbeat Checker</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 2em; }
+        .status { margin: 1em 0; }
+        .up { color: green; }
+        .down { color: red; }
+    </style>
+</head>
+<body>
+    <h1>Service Heartbeat Checker</h1>
+    <div class="status" id="geoStatus">geo.ca: <span>Checking...</span></div>
+    <div class="status" id="appGeoStatus">app.geo.ca: <span>Checking...</span></div>
+    <div class="status" id="isShouldBeDownStatus">itshouldbedown.geo.ca: <span>Checking...</span></div>
+    <button onclick="checkStatus()">Check Again</button>
+
+    <script>
+        async function checkUrl(url, statusElemId) {
+            const statusElem = document.getElementById(statusElemId).querySelector('span');
+            try {
+                const response = await fetch(url, { method: 'HEAD', mode: 'no-cors' });
+                // If fetch doesn't throw, assume up (no-cors HEAD won't give status, but won't error if reachable)
+                statusElem.textContent = 'Up';
+                statusElem.className = 'up';
+            } catch (e) {
+                statusElem.textContent = 'Down';
+                statusElem.className = 'down';
+            }
+        }
+
+        function checkStatus() {
+            checkUrl('https://geo.ca', 'geoStatus');
+            checkUrl('https://app.geo.ca', 'appGeoStatus');
+            checkUrl('https://itshouldbedown.geo.ca', 'isShouldBeDownStatus');
+        }
+
+        // Initial check on page load
+        checkStatus();
+    </script>
+</body>
+</html>
